@@ -1,0 +1,27 @@
+import fs from 'fs/promises'
+import { toCurrent, toProject } from './path'
+import { resolve } from 'path'
+
+export async function * getAllFiles (dir: string): AsyncIterable<string> {
+  const entries = await fs.readdir(dir, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const res = resolve(dir, entry.name)
+
+    if (entry.isDirectory()) {
+      yield * getAllFiles(res)
+    } else {
+      yield res
+    }
+  }
+}
+
+export async function copy (path: string): Promise<void> {
+  await fs.cp(
+    toProject(path),
+    toCurrent(path),
+    {
+      recursive: true
+    }
+  )
+}
