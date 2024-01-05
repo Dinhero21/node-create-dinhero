@@ -1,7 +1,7 @@
-import { copy } from '../filesystem/file'
-import { runner } from '../task'
-import { addDependency } from './npm'
-import { mergePackageJson } from './package.json'
+import { copy } from '../filesystem/file.js'
+import { runner } from '../task/index.js'
+import { addDependency } from './npm.js'
+import { mergePackageJson } from './package.json.js'
 
 mergePackageJson({
   config: {

@@ -1,6 +1,6 @@
-import { runner } from '../task'
-import { run } from '../util/command'
-import generatePackageJson from './package.json'
+import { runner } from '../task/index.js'
+import { run } from '../util/command.js'
+import generatePackageJson from './package.json.js'
 
 const DEPENDENCIES = new Set<string>()
 const DEV_DEPENDENCIES = new Set<string>()
@@ -15,8 +15,6 @@ export function addDevDependency (dependency: string): void {
 
 export const install = runner.create(
   async function install (): Promise<void> {
-    console.count('install')
-
     await run(`npm install --save ${Array.from(DEPENDENCIES).join(' ')}`, 'npm install')
     await run(`npm install --save-dev ${Array.from(DEV_DEPENDENCIES).join(' ')}`, 'npm install (dev)')
   }

@@ -1,3 +1,3 @@
-import { addDevDependency } from './npm'
+import { addDevDependency } from './npm.js'
 
 addDevDependency('nodemon')

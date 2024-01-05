@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
-import { runner } from '../task'
-import { run } from '../util/command'
+import { runner } from '../task/index.js'
+import { run } from '../util/command.js'
 import _ from 'lodash'
 
 const PACKAGE_JSON_MERGE = {}
@@ -18,7 +18,12 @@ export const generatePackageJson = runner.create(
 
     _.merge(packageJson, PACKAGE_JSON_MERGE)
 
-    const newRawPackageJson = JSON.stringify(packageJson)
+    const newRawPackageJson = JSON.stringify(
+      packageJson,
+      null,
+      2
+    )
+
     await fs.writeFile('package.json', newRawPackageJson)
   }
 )

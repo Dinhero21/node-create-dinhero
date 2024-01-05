@@ -1,31 +1,29 @@
-import { importStar } from './util/import-star'
+import { importStar } from './util/import-star.js'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { runner } from './task'
+import { runner } from './task/index.js'
 
-if (!('__filename' in globalThis)) {
+// swc pollutes __filename and __dirname for whatever reason
+// so we have to rely on globalThis.require to detect if esm
+// or cjs
+
+if (!('require' in globalThis)) {
   globalThis.__filename = fileURLToPath(import.meta.url)
-}
-
-if (!('__dirname' in globalThis)) {
   globalThis.__dirname = dirname(globalThis.__filename)
 }
+
 async function importAllPlugins (): Promise<void> {
   await importStar(resolve(__dirname, 'plugin'))
 }
 
-async function main (): Promise<void> {
-  console.time('bootstrap')
+console.time('bootstrap')
 
-  await importAllPlugins()
+await importAllPlugins()
 
-  console.timeEnd('bootstrap')
+console.timeEnd('bootstrap')
 
-  console.time('run')
+console.time('run')
 
-  await runner.run()
+await runner.run()
 
-  console.timeEnd('run')
-}
-
-void main()
+console.timeEnd('run')

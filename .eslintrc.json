@@ -3,8 +3,13 @@
     "es2021": true,
     "node": true
   },
-  "extends": "standard-with-typescript",
-  "plugins": [],
+  "extends": [
+    "standard-with-typescript",
+    "plugin:require-extensions/recommended"
+  ],
+  "plugins": [
+    "require-extensions"
+  ],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
