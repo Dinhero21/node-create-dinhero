@@ -1,7 +1,7 @@
 import { importStar } from './util/import-star.js'
+import { runner } from './task/index.js'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { runner } from './task/index.js'
 
 // swc pollutes __filename and __dirname for whatever reason
 // so we have to rely on globalThis.require to detect if esm

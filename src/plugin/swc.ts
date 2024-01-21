@@ -1,6 +1,6 @@
+import { addDependency, addDevDependency } from './npm.js'
 import { copy } from '../filesystem/file.js'
 import { runner } from '../task/index.js'
-import { addDependency, addDevDependency } from './npm.js'
 
 addDevDependency('@swc/cli')
 addDevDependency('@swc/core')

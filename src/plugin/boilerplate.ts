@@ -1,6 +1,6 @@
-import fs from 'fs/promises'
 import { runner } from '../task/index.js'
 import { toCurrent } from '../filesystem/path.js'
+import fs from 'fs/promises'
 
 export const boilerplate = runner.create(
   async function boilerplate (): Promise<void> {

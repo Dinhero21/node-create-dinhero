@@ -1,6 +1,6 @@
+import { addDevDependency } from './npm.js'
 import { copy } from '../filesystem/file.js'
 import { runner } from '../task/index.js'
-import { addDevDependency } from './npm.js'
 
 addDevDependency('typescript')
 // ? Should I

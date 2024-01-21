@@ -1,5 +1,5 @@
-import fs from 'fs/promises'
 import { toCurrent, toProject } from './path.js'
+import fs from 'fs/promises'
 import { resolve } from 'path'
 
 export async function * getAllFiles (dir: string): AsyncIterable<string> {

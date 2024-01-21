@@ -1,6 +1,6 @@
+import generatePackageJson from './package.json.js'
 import { runner } from '../task/index.js'
 import { run } from '../util/command.js'
-import generatePackageJson from './package.json.js'
 
 const DEPENDENCIES = new Set<string>()
 const DEV_DEPENDENCIES = new Set<string>()

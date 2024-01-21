@@ -11,9 +11,14 @@
       "useDefineForClassFields": false
     },
     "externalHelpers": true,
-    "target": "es5",
+    "target": "esnext",
     "loose": true
   },
+  "exclude": [
+    "\\.js$",
+    "\\.d\\.ts$",
+    "node_modules"
+  ],
   "module": {
     "type": "es6"
   },
