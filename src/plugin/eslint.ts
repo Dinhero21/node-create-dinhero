@@ -9,7 +9,7 @@ addDevDependency('eslint-config-standard-with-typescript')
 addDevDependency('eslint-plugin-import')
 addDevDependency('eslint-plugin-n')
 addDevDependency('eslint-plugin-promise')
-addDevDependency('eslint-plugin-require-extension')
+addDevDependency('eslint-plugin-require-extensions')
 
 export const eslintrc = runner.create(
   async function eslintrc (): Promise<void> {
