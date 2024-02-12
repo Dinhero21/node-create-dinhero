@@ -13,7 +13,7 @@ export const boilerplate = runner.create(
 
     await fs.writeFile(
       toCurrent('src/index.ts'),
-      'console.log(\'Hello World!\')'
+      'console.log(\'Hello World!\')\n'
     )
   }
 )
