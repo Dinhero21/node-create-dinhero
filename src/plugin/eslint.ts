@@ -1,20 +1,18 @@
-import { addDevDependency } from './npm.js'
-import { copy } from '../filesystem/file.js'
-import { runner } from '../task/index.js'
+import { copy } from '../filesystem/file.js';
+import { runner } from '../task/index.js';
+import { addDevDependency } from './npm.js';
 
-addDevDependency('@typescript-eslint/eslint-plugin')
-addDevDependency('@typescript-eslint/parser')
-addDevDependency('eslint')
-addDevDependency('eslint-config-standard-with-typescript')
-addDevDependency('eslint-plugin-import')
-addDevDependency('eslint-plugin-n')
-addDevDependency('eslint-plugin-promise')
-addDevDependency('eslint-plugin-require-extensions')
+addDevDependency('@eslint/js');
+addDevDependency('eslint');
+addDevDependency('eslint-config-prettier');
+addDevDependency('eslint-plugin-simple-import-sort');
+addDevDependency('typescript-eslint');
+addDevDependency('globals');
 
-export const eslintrc = runner.create(
-  async function eslintrc (): Promise<void> {
-    await copy('.eslintrc.json')
-  }
-)
+export const eslintConfig = runner.create(
+  async function eslintConfig(): Promise<void> {
+    await copy('eslint.config.mjs');
+  },
+);
 
-export default eslintrc
+export default eslintConfig;

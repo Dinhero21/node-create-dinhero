@@ -1,16 +1,16 @@
-import { addDependency } from './npm.js'
-import { mergePackageJson } from './package.json.js'
-import { copy } from '../filesystem/file.js'
-import { runner } from '../task/index.js'
+import { copy } from '../filesystem/file.js';
+import { runner } from '../task/index.js';
+import { addDependency } from './npm.js';
+import { mergePackageJson } from './package.json.js';
 
 mergePackageJson({
   config: {
     scripty: {
       parallel: true,
-      path: 'script'
-    }
-  }
-})
+      path: 'script',
+    },
+  },
+});
 
 mergePackageJson({
   scripts: {
@@ -18,16 +18,14 @@ mergePackageJson({
     'watch:build': 'scripty',
     run: 'scripty',
     'watch:run': 'scripty',
-    watch: 'scripty'
-  }
-})
+    watch: 'scripty',
+  },
+});
 
-addDependency('scripty')
+addDependency('scripty');
 
-export const scripts = runner.create(
-  async function scripts (): Promise<void> {
-    await copy('script')
-  }
-)
+export const scripts = runner.create(async function scripts(): Promise<void> {
+  await copy('script');
+});
 
-export default scripts
+export default scripts;

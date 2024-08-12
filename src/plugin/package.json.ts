@@ -1,36 +1,33 @@
-import { runner } from '../task/index.js'
-import { run } from '../util/command.js'
-import fs from 'fs/promises'
-import _ from 'lodash'
+import fs from 'fs/promises';
+import _ from 'lodash';
 
-const PACKAGE_JSON_MERGE = {}
+import { runner } from '../task/index.js';
+import { run } from '../util/command.js';
 
-export function mergePackageJson (data: Record<string, any>): void {
-  _.merge(PACKAGE_JSON_MERGE, data)
+const PACKAGE_JSON_MERGE = {};
+
+export function mergePackageJson(data: Record<string, any>): void {
+  _.merge(PACKAGE_JSON_MERGE, data);
 }
 
 // I don't know where to put this
 mergePackageJson({
-  type: 'module'
-})
+  type: 'module',
+});
 
 export const generatePackageJson = runner.create(
-  async function generatePackageJson (): Promise<void> {
-    await run('npm init -y', 'npm init')
+  async function generatePackageJson(): Promise<void> {
+    await run('npm init -y', 'npm init');
 
-    const oldRawPackageJson = await fs.readFile('package.json', 'utf8')
-    const packageJson = JSON.parse(oldRawPackageJson)
+    const oldRawPackageJson = await fs.readFile('package.json', 'utf8');
+    const packageJson = JSON.parse(oldRawPackageJson);
 
-    _.merge(packageJson, PACKAGE_JSON_MERGE)
+    _.merge(packageJson, PACKAGE_JSON_MERGE);
 
-    const newRawPackageJson = JSON.stringify(
-      packageJson,
-      null,
-      2
-    )
+    const newRawPackageJson = JSON.stringify(packageJson, null, 2);
 
-    await fs.writeFile('package.json', newRawPackageJson)
-  }
-)
+    await fs.writeFile('package.json', newRawPackageJson);
+  },
+);
 
-export default generatePackageJson
+export default generatePackageJson;
