@@ -9,32 +9,22 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(
   { languageOptions: { globals: globals.browser } },
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
+  ...tseslint.configs.strict,
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
     },
     rules: {
-      // 'import/order': [
-      //   'error',
-      //   {
-      //     groups: [
-      //       'type',
-      //       'index',
-      //       'sibling',
-      //       'parent',
-      //       'internal',
-      //       'builtin',
-      //       'external',
-      //       'object',
-      //     ],
-      //   },
-      // ],
       'simple-import-sort/exports': 'off',
       'simple-import-sort/imports': 'error',
       'no-case-declarations': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       'no-constant-condition': ['error', { checkLoops: false }],
+    },
+    languageOptions: {
+      parserOptions: {
+        project: './tsconfig.json',
+      },
     },
   },
   prettier,
