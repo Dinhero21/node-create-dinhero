@@ -19,6 +19,7 @@ mergePackageJson({
     run: 'scripty',
     'watch:run': 'scripty',
     watch: 'scripty',
+    lint: 'scripty',
   },
 });
 
