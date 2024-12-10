@@ -7,10 +7,10 @@
   "scripts": {
     "build": "scripty",
     "watch:build": "scripty",
+    "lint": "scripty",
     "run": "scripty",
     "watch:run": "scripty",
-    "watch": "scripty",
-    "lint": "scripty"
+    "watch": "scripty"
   },
   "keywords": [],
   "author": "",
