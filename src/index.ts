@@ -1,9 +1,9 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S node --experimental-strip-types
 
 import { resolve } from 'path';
 
-import { runner } from './task/index.js';
-import { importStar } from './util/import-star.js';
+import { runner } from './task/index.ts';
+import { importStar } from './util/import-star.ts';
 
 async function importAllPlugins(): Promise<void> {
   await importStar(resolve(import.meta.dirname, 'plugin'));

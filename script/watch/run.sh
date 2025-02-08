@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nodemon --watch dist --exec "./script/run.sh $@"
+nodemon --watch src --ext '*' --exec "./script/run.sh $@"

@@ -1,8 +1,8 @@
 import fs from 'fs/promises';
 import _ from 'lodash';
 
-import { runner } from '../task/index.js';
-import { run } from '../util/command.js';
+import { runner } from '../task/index.ts';
+import { run } from '../util/command.ts';
 
 const PACKAGE_JSON_MERGE = {};
 
@@ -13,6 +13,7 @@ export function mergePackageJson(data: Record<string, any>): void {
 // I don't know where to put this
 mergePackageJson({
   type: 'module',
+  main: 'src/index.ts',
 });
 
 export const generatePackageJson = runner.create(

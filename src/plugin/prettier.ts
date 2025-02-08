@@ -1,6 +1,6 @@
-import { copy } from '../filesystem/file.js';
-import { runner } from '../task/index.js';
-import { addDevDependency } from './npm.js';
+import { copy } from '../filesystem/file.ts';
+import { runner } from '../task/index.ts';
+import { addDevDependency } from './npm.ts';
 
 addDevDependency('prettier');
 

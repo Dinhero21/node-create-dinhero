@@ -1,7 +1,7 @@
 import fs from 'fs/promises';
 import { resolve } from 'path';
 
-import { toCurrent, toProject } from './path.js';
+import { toCurrent, toProject } from './path.ts';
 
 export async function* getAllFiles(dir: string): AsyncIterable<string> {
   const entries = await fs.readdir(dir, { withFileTypes: true });

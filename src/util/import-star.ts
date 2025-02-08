@@ -1,4 +1,4 @@
-import { getAllFiles } from '../filesystem/file.js';
+import { getAllFiles } from '../filesystem/file.ts';
 
 export async function importStar(directory: string): Promise<void> {
   for await (const file of getAllFiles(directory)) {

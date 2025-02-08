@@ -2,21 +2,18 @@
   "name": "create-dinhero",
   "version": "1.0.0",
   "description": "create a node project",
-  "main": "index.js",
+  "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "scripty",
-    "watch:build": "scripty",
     "lint": "scripty",
     "run": "scripty",
     "watch:run": "scripty",
     "watch": "scripty"
   },
   "keywords": [],
-  "author": "",
+  "author": "dinhero21",
   "license": "MIT",
   "dependencies": {
-    "@swc/helpers": "^0.5.12",
     "lodash": "^4.17.21",
     "scripty": "^2.1.1"
   },
@@ -28,12 +25,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
-    "@swc/cli": "^0.4.0",
-    "@swc/core": "^1.7.10",
     "@types/lodash": "^4.17.7",
     "@types/node": "^22.2.0",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "globals": "^15.9.0",
     "nodemon": "^3.1.4",

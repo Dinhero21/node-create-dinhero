@@ -1,7 +1,7 @@
-import { copy } from '../filesystem/file.js';
-import { runner } from '../task/index.js';
-import { addDependency } from './npm.js';
-import { mergePackageJson } from './package.json.js';
+import { copy } from '../filesystem/file.ts';
+import { runner } from '../task/index.ts';
+import { addDependency } from './npm.ts';
+import { mergePackageJson } from './package.json.ts';
 
 mergePackageJson({
   config: {
@@ -14,10 +14,8 @@ mergePackageJson({
 
 mergePackageJson({
   scripts: {
-    build: 'scripty',
-    'watch:build': 'scripty',
-    run: 'scripty',
     lint: 'scripty',
+    run: 'scripty',
     'watch:run': 'scripty',
     watch: 'scripty',
   },
